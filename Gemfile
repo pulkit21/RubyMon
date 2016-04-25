@@ -46,3 +46,7 @@ group :development do
   gem 'spring'
 end
 
+# For authentication
+gem 'devise_token_auth', '~> 0.1.37'
+gem 'omniauth-facebook'
+gem 'cancancan', '~> 1.10.1'
