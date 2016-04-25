@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   scope(:path => '/api') do
     resources :teams, except: [:new, :edit]
+    resources :monsters, except: [:new, :edit]
   end
 
 end

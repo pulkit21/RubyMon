@@ -3,6 +3,8 @@ class Team < ActiveRecord::Base
   TEAM_LIMIT_PER_USER = 3
 
   belongs_to :user
+  has_many :monsters, dependent: :nullify
+
   validates :name, presence: true
   validate :check_the_team_limit_per_user, on: :create
 

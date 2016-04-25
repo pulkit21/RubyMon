@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :teams, dependent: :destroy
+  has_many :monsters, dependent: :destroy
 end
