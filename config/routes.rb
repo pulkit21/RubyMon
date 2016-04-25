@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     post 'auth/facebook' => "omniauth_callbacks#facebook_login"
   end
 
+  scope(:path => '/api') do
+    resources :teams, except: [:new, :edit]
+  end
+
 end
