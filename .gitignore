@@ -12,3 +12,6 @@
 !/log/.keep
 /tmp
 .byebug_history
+
+#ignore RSpec config
+.rspec
