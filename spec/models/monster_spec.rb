@@ -28,7 +28,7 @@ RSpec.describe Monster, type: :model do
     team = create(:team, name: 'Team1', user: user)
     [*1..3].each do |f|
       monster_type = ["fire", "water", "earth", "electric", "wind"].sample
-      @monster = create(:monster, name: "Monster1", monster_type: monster_type, power: monster_type, team: team)
+      @monster = create(:monster, name: "Monster1", monster_type: monster_type, power: monster_type, team: team, user: user)
     end
     expect(@monster).to be_valid
   end
