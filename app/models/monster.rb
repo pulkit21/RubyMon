@@ -21,7 +21,7 @@ class Monster < ActiveRecord::Base
   end
 
   def check_limit_per_user
-    errors.add(:monsters, "Cannot create more than #{LIMIT_PER_USER} teams per user") if user && user.monsters.count >= LIMIT_PER_USER
+    errors.add(:monsters, "Cannot create more than #{LIMIT_PER_USER} monsters per user") if user && user.monsters.count >= LIMIT_PER_USER
   end
 
 
