@@ -51,6 +51,7 @@ group :development do
 end
 
 # For authentication
+gem "devise"
 gem 'devise_token_auth', '~> 0.1.37'
 gem 'omniauth-facebook'
 gem 'cancancan', '~> 1.10.1'

@@ -26,7 +26,32 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+module TestHelpers
+  def login_user(user, request)
+    request.env["devise.mapping"] = Devise.mappings[:user]
+    request.headers.merge! user.create_new_auth_token
+
+    # does not work without this. Shouldn't be required
+    sign_in user
+  end
+
+  def response_body
+    JSON.parse(response.body)
+  end
+
+  def authentication_headers
+    {
+      "access-token" => response.header["access-token"],
+      "token-type" => response.header["token-type"],
+      "client" => response.header["client"],
+      "expiry" => response.header["expiry"],
+      "uid" => response.header["uid"]
+    }
+  end
+end
+
 RSpec.configure do |config|
+  include TestHelpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
